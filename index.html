@@ -122,11 +122,13 @@
 <p>ver.2024/12/21-21:32・<a href="https://misskey.flowers/@minumarapid">おーみや</a></p>
 
 <script>
-  // 完了ボタン処理
-document.getElementById("btn").addEventListener("click", function() {
+  // 完了ボタン処理document.getElementById("btn").addEventListener("click", function() {
     let mte = document.forms.MTE;
-    let a1 = (Math.random() * 10) + 1;
-    let a2 = (Math.random() * 0.1) + 1;
+
+    // ランダム文字列を生成
+    const randomId = generateRandomString(8); // 8文字のランダム文字列
+
+    // コード生成
     let code = `
 {
   base: '${mte.base.value}',
@@ -145,12 +147,22 @@ document.getElementById("btn").addEventListener("click", function() {
     inputBorder: '${mte.inputBorder.value}'
   },
   author: '${mte.author.value}',
-  id: '${Math.round(a1 * 1000 + a2 * 100)}'
+  id: '${randomId}'
 }`;
 
     // テキストエリアにコードを表示
     document.getElementById("code").value = code;
 });
+
+// ランダム文字列生成関数
+function generateRandomString(length) {
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  let result = '';
+  for (let i = 0; i < length; i++) {
+    result += characters.charAt(Math.floor(Math.random() * characters.length));
+  }
+  return result;
+}
   // コードコピー処理
   document.getElementById("copyBtn").addEventListener("click", function() {
     let code = document.getElementById("code");
