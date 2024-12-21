@@ -12,10 +12,12 @@
       margin: 0;
       padding: 0;
       background-color: #fafafa;
+      color: #333;
+      transition: background-color 0.3s, color 0.3s; /* ダークモード切り替えのアニメーション */
     }
     h1 {
       text-align: center;
-      color: #333;
+      color: inherit;
       padding: 20px;
     }
     form {
@@ -25,7 +27,8 @@
       background-color: #fff;
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      box-sizing: border-box; /* パディングとボーダーを幅に含める */
+      box-sizing: border-box;
+      transition: background-color 0.3s, box-shadow 0.3s;
     }
     label {
       display: block;
@@ -39,14 +42,7 @@
       border: 1px solid #ddd;
       border-radius: 4px;
       font-size: 16px;
-      box-sizing: border-box; /* パディングとボーダーを幅に含める */
-    }
-    input[type="color"] {
-      height: 40px;  /* 高さを調整 */
-      width: 100%;   /* 横幅は100% */
-      padding: 0;    /* 余分なパディングをなくす */
-      border: 1px solid #ddd;
-      border-radius: 4px;
+      box-sizing: border-box;
     }
     button {
       background-color: #4CAF50;
@@ -59,9 +55,6 @@
     .output-area {
       margin-top: 20px;
     }
-    .output-area label {
-      margin-bottom: 5px;
-    }
     textarea {
       width: 100%;
       height: 200px;
@@ -70,7 +63,7 @@
       border: 1px solid #ddd;
       padding: 10px;
       resize: none;
-      box-sizing: border-box; /* パディングとボーダーを幅に含める */
+      box-sizing: border-box;
     }
     .button-group {
       display: flex;
@@ -82,9 +75,35 @@
     }
     p {
       text-align: center;
-      font-size: 14px; /* フォントサイズはお好みで調整 */
-      color: #555;     /* テキストの色を薄める（任意） */
-      margin: 20px 0;  /* 上下の余白を調整 */
+      font-size: 14px;
+      color: #555;
+      margin: 20px 0;
+    }
+
+    /* ダークモード */
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: #1e1e1e;
+        color: #f4f4f4;
+      }
+      form {
+        background-color: #2c2c2c;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+      }
+      input[type="text"], textarea {
+        background-color: #3c3c3c;
+        color: #f4f4f4;
+        border: 1px solid #555;
+      }
+      input[type="color"] {
+        border: 1px solid #555;
+      }
+      button {
+        background-color: #5cb85c;
+      }
+      button:hover {
+        background-color: #4cae4c;
+      }
     }
   </style>
 </head>
