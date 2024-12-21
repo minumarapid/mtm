@@ -6,112 +6,142 @@
   <title>Misskey非公式テーマメーカー</title>
   <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
   <style>
-  /* 共通の基本スタイル */
-  body {
-    font-family: 'M PLUS Rounded 1c', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #fafafa; /* ライトモードの背景色 */
-    color: #333; /* ライトモードの文字色 */
-  }
+    /* 共通のスタイル */
+    body {
+      font-family: 'M PLUS Rounded 1c', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fafafa;
+      color: #333;
+    }
 
-  h1 {
-    text-align: center;
-    padding: 20px;
-  }
+    h1 {
+      text-align: center;
+      color: #333;
+      padding: 20px;
+    }
 
-  form {
-    max-width: 600px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #fff; /* ライトモードの背景色 */
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    box-sizing: border-box;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 10px;
-  }
-
-  label {
-    display: block;
-    margin-bottom: 5px;
-    font-size: 16px;
-  }
-
-  input[type="text"], input[type="color"], button {
-    width: 100%;
-    padding: 10px;
-    margin: 5px 0 15px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 16px;
-    box-sizing: border-box;
-  }
-  input[type="color"] {
-    height: 40px; /* 高さを40pxに設定 */
-    padding: 0;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    box-sizing: border-box; /* パディングとボーダーを幅に含める */
-  }
-  button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
-
-  button:hover {
-    background-color: #45a049;
-  }
-
-  /* 横長画面のスタイル */
-  @media (min-width: 768px) {
     form {
-      grid-template-columns: repeat(2, 1fr);
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      box-sizing: border-box;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 16px;
+    }
+
+    input[type="text"], input[type="color"], button {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0 15px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 16px;
+      box-sizing: border-box;
     }
 
     button {
-      grid-column: span 2;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
     }
-  }
 
-  /* ダークモード用のスタイル */
-  [data-theme="dark"] {
-    background-color: #121212; /* ダークモードの背景色 */
-    color: #e0e0e0; /* ダークモードの文字色 */
-  }
+    button:hover {
+      background-color: #45a049;
+    }
 
-  [data-theme="dark"] form {
-    background-color: #1e1e1e; /* ダークモードのフォーム背景色 */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* ダークモードの影 */
-  }
+    .output-area {
+      margin-top: 20px;
+    }
 
-  [data-theme="dark"] input[type="text"], 
-  [data-theme="dark"] input[type="color"], 
-  [data-theme="dark"] button {
-    border: 1px solid #444; /* ダークモードの枠線色 */
-    background-color: #333; /* ダークモードの入力背景色 */
-    color: #e0e0e0; /* ダークモードの文字色 */
-  }
+    .output-area label {
+      margin-bottom: 5px;
+    }
 
-  [data-theme="dark"] button {
-    background-color: #4CAF50;
-    color: white;
-  }
+    textarea {
+      grid-column: span 2;
+      width: 100%;
+      height: 200px;
+      font-family: monospace;
+      background-color: #f4f4f4;
+      border: 1px solid #ddd;
+      padding: 10px;
+      resize: none;
+      box-sizing: border-box;
+    }
 
-  [data-theme="dark"] button:hover {
-    background-color: #45a049;
-  }
-</style>
+    .button-group {
+      display: flex;
+      gap: 10px;
+    }
+
+    .button-group button {
+      flex: 1;
+    }
+
+    p {
+      text-align: center;
+      font-size: 14px;
+      color: #555;
+      margin: 20px 0;
+    }
+
+    /* ダークモードのスタイル */
+    [data-theme="dark"] {
+      background-color: #121212;
+      color: #e0e0e0;
+    }
+
+    [data-theme="dark"] form {
+      background-color: #1e1e1e;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    [data-theme="dark"] input[type="text"],
+    [data-theme="dark"] input[type="color"],
+    [data-theme="dark"] button {
+      border: 1px solid #444;
+      background-color: #333;
+      color: #e0e0e0;
+    }
+
+    [data-theme="dark"] button {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    [data-theme="dark"] button:hover {
+      background-color: #45a049;
+    }
+
+    /* 横長画面のスタイル */
+    @media (min-width: 768px) {
+      form {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      button {
+        grid-column: span 2;
+      }
+    }
+  </style>
 </head>
 <body>
 
 <h1>Misskey非公式テーマメーカー</h1>
 
 <form name="MTE">
-  <!-- 入力フォーム -->
   <label><input type="radio" name="base" value="light"> ライト</label>
   <label><input type="radio" name="base" value="dark"> ダーク</label>
   <br>
@@ -136,14 +166,15 @@
   <div class="output-area">
     <label for="code">生成されたコード:</label>
     <textarea id="code" readonly></textarea>
-    
+
     <div class="button-group">
       <button type="button" id="copyBtn">コードをコピー</button>
       <button type="button" id="shareBtn">Misskeyにシェア</button>
     </div>
   </div>
 </form>
-<p>ver.2024/12/22-05:42・<a href="https://misskey.flowers/@minumarapid">おーみや</a></p>
+
+<p>ver.2024/12/21-21:50・<a href="https://misskey.flowers/@minumarapid">おーみや</a></p>
 
 <script>
   // ランダムなIDを生成する関数
@@ -195,6 +226,25 @@
 
     // 新しいタブで共有URLを開く
     window.open(shareUrl, "_blank");
+  });
+
+  // ダークモードを自動的に切り替える処理
+  const prefersDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const body = document.body;
+
+  if (prefersDarkMode) {
+    body.setAttribute("data-theme", "dark");
+  } else {
+    body.setAttribute("data-theme", "light");
+  }
+
+  // ダークモードが変更された際のイベントリスナー
+  window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', (e) => {
+    if (e.matches) {
+      body.setAttribute("data-theme", "dark");
+    } else {
+      body.setAttribute("data-theme", "light");
+    }
   });
 </script>
 </body>
