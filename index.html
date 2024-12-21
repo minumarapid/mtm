@@ -1,0 +1,22 @@
+<script>
+  // ユーザーエージェントを取得
+  const userAgent = navigator.userAgent.toLowerCase();
+
+  // OS判別
+  if (userAgent.includes('windows')) {
+    // Windowsの場合
+    window.location.href = 'https://minumarapid.github.io/mfm/old';
+  } else if (userAgent.includes('mac')) {
+    // macOSの場合
+    window.location.href = 'https://minumarapid.github.io/mfm/old';
+  } else if (userAgent.includes('android')) {
+    // Androidの場合
+    window.location.href = 'https://minumarapid.github.io/mfm/android';
+  } else if (userAgent.includes('iphone') || userAgent.includes('ipad')) {
+    // iOSの場合
+    window.location.href = 'https://minumarapid.github.io/mfm/ios';
+  } else {
+    // それ以外の場合
+    window.location.href = 'https://minumarapid.github.io/mfm/opd';
+  }
+</script>
