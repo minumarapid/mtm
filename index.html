@@ -123,7 +123,7 @@
 
 <script>
   // 完了ボタン処理
-  document.getElementById("btn").addEventListener("click", function() {
+document.getElementById("btn").addEventListener("click", function() {
     let mte = document.forms.MTE;
     let a1 = (Math.random() * 10) + 1;
     let a2 = (Math.random() * 0.1) + 1;
@@ -145,13 +145,12 @@
     inputBorder: '${mte.inputBorder.value}'
   },
   author: '${mte.author.value}',
-  id: `${Math.round(a1 * 1000 + a2 100)}`
+  id: '${Math.round(a1 * 1000 + a2 * 100)}'
 }`;
 
     // テキストエリアにコードを表示
     document.getElementById("code").value = code;
-  });
-
+});
   // コードコピー処理
   document.getElementById("copyBtn").addEventListener("click", function() {
     let code = document.getElementById("code");
