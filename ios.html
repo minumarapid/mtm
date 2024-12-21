@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Misskey非公式テーマメーカー</title>
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
+  <style>
+    /* 基本のスタイル */
+    body {
+      font-family: 'M PLUS Rounded 1c', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f7; /* iOSっぽい背景色 */
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 24px;
+      margin: 20px 0;
+      color: #007aff; /* iOS風アクセントカラー */
+    }
+
+    form {
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 16px; /* 丸みをつける */
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1); /* iOS風の柔らかい影 */
+    }
+
+    label {
+      display: block;
+      margin: 10px 0 5px;
+      font-size: 14px;
+      color: #8e8e93; /* iOS風薄いグレー */
+    }
+
+    input[type="text"], input[type="color"], button {
+      width: 100%;
+      padding: 12px;
+      margin: 5px 0 15px;
+      border: 1px solid #d1d1d6; /* iOS風の淡い境界線 */
+      border-radius: 8px;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+
+    input[type="color"] {
+      height: 44px;
+      padding: 0;
+      cursor: pointer;
+    }
+
+    button {
+      background-color: #007aff;
+      color: white;
+      border: none;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #005fcc;
+    }
+
+    .output-area {
+      margin-top: 20px;
+    }
+
+    .output-area label {
+      font-size: 14px;
+      color: #8e8e93;
+    }
+
+    textarea {
+      width: 100%;
+      height: 200px;
+      font-family: 'Courier New', monospace;
+      background-color: #f5f5f7;
+      border: 1px solid #d1d1d6;
+      border-radius: 8px;
+      padding: 10px;
+      resize: none;
+      box-sizing: border-box;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 10px;
+    }
+
+    .button-group button {
+      flex: 1;
+    }
+
+    p {
+      text-align: center;
+      font-size: 12px;
+      color: #8e8e93;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Misskey非公式テーマメーカー</h1>
+
+<form name="MTE">
+  <label>テーマベース <input type="radio" name="base" value="light" checked> ライト</label>
+  <label><input type="radio" name="base" value="dark"> ダーク</label>
+  <label>テーマ名 <input type="text" id="name" placeholder="テーマ名を入力"></label>
+  <label>背景色 <input type="color" id="bg" value="#ffffff"></label>
+  <label>文字色 <input type="color" id="fg" value="#000000"></label>
+  <label>リンクの色 <input type="color" id="link" value="#007aff"></label>
+  <label>UI左メニュー背景 <input type="color" id="navBg" value="#f5f5f7"></label>
+  <label>微妙に異なる色 <input type="color" id="panel" value="#e5e5ea"></label>
+  <label>アクセント色 <input type="color" id="accent" value="#ff3b30"></label>
+  <label>スマホモード下部色 <input type="color" id="header" value="#f5f5f7"></label>
+  <label>リノートの色 <input type="color" id="renote" value="#34c759"></label>
+  <label>ハッシュタグ色 <input type="color" id="hashtag" value="#ff9500"></label>
+  <label>メンション色 <input type="color" id="mention" value="#af52de"></label>
+  <label>入力ボーダー色 <input type="color" id="inputBorder" value="#d1d1d6"></label>
+  <label>ユーザー名 <input type="text" id="author" placeholder="@example"></label>
+
+  <button type="button" id="btn">テーマを生成</button>
+
+  <div class="output-area">
+    <label for="code">生成されたコード:</label>
+    <textarea id="code" readonly></textarea>
+
+    <div class="button-group">
+      <button type="button" id="copyBtn">コードをコピー</button>
+      <button type="button" id="shareBtn">Misskeyにシェア</button>
+    </div>
+  </div>
+</form>
+
+<p>ver.2024/12/21 - Designed by <a href="https://misskey.flowers/@minumarapid" target="_blank">@minumarapid</a></p>
+
+<script>
+  // JavaScriptコードはそのまま流用でOK
+</script>
+
+</body>
+</html>
