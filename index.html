@@ -3,10 +3,10 @@
   const userAgent = navigator.userAgent.toLowerCase();
 
   // OS判別
-  if (userAgent.includes('mac')) || (userAgent.includes('iphone') || userAgent.includes('ipad')) {
+  if (userAgent.includes('mac')) || (userAgent.includes('iphone')) || userAgent.includes('ipad')) {
     // iOS/macの場合
     window.location.href = 'https://minumarapid.github.io/mtm/old';
-  } else 
+  } else {
     // その他の場合
     window.location.href = 'https://minumarapid.github.io/mtm/android';
   }
