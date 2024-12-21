@@ -1,13 +1,24 @@
-<script>
-  // ユーザーエージェントを取得
-  const userAgent = navigator.userAgent.toLowerCase();
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Device Redirect</title>
+  <script>
+    window.onload = function() {
+      const userAgent = navigator.userAgent.toLowerCase();
 
-  // OS判別
-  if (userAgent.includes('mac')) || (userAgent.includes('iphone')) || userAgent.includes('ipad')) {
-    // iOS/macの場合
-    window.location.href = 'https://minumarapid.github.io/mtm/old';
-  } else {
-    // その他の場合
-    window.location.href = 'https://minumarapid.github.io/mtm/android';
-  }
-</script>
+      if (userAgent.includes("iphone") || userAgent.includes("ipad") || userAgent.includes("macintosh")) {
+        // iOS/macの場合
+        window.location.href = "ios.html";
+      } else {
+        // その他の場合
+        window.location.href = "other.html";
+      }
+    };
+  </script>
+</head>
+<body>
+  <p>リダイレクト中です...</p>
+</body>
+</html>
