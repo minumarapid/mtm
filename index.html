@@ -130,7 +130,7 @@
 <script>
   // ランダムなIDを生成する関数
   function generateRandomId() {
-    return Math.random().toString(36).substring(2, 10); // ランダムな8文字のID
+    return Array.from({ length: 20 }, () => Math.random().toString(36).charAt(2)).join('');
   }
 
   // 完了ボタン処理
