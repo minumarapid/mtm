@@ -128,47 +128,39 @@
 <p>ver.2024/12/21-21:42・<a href="https://misskey.flowers/@minumarapid">おーみや</a></p>
 
 <script>
-  // 完了ボタン処理document.getElementById("btn").addEventListener("click", function() {
+  // ランダムなIDを生成する関数
+  function generateRandomId() {
+    return Math.random().toString(36).substring(2, 10); // ランダムな8文字のID
+  }
+
+  // 完了ボタン処理
+  document.getElementById("btn").addEventListener("click", function() {
     let mte = document.forms.MTE;
-
-    // ランダム文字列を生成
-    const randomId = generateRandomString(8); // 8文字のランダム文字列
-
-    // コード生成
     let code = `
-{
-  base: '${mte.base.value}',
-  name: '${mte.name.value}',
-  props: {
-    bg: '${mte.bg.value}',
-    fg: '${mte.fg.value}',
-    link: '${mte.link.value}',
-    navBg: '${mte.navBg.value}',
-    panel: '${mte.panel.value}',
-    accent: '${mte.accent.value}',
-    header: '${mte.header.value}',
-    renote: '${mte.renote.value}',
-    hashtag: '${mte.hashtag.value}',
-    mention: '${mte.mention.value}',
-    inputBorder: '${mte.inputBorder.value}'
-  },
-  author: '${mte.author.value}',
-  id: '${randomId}'
-}`;
+    {
+      base: '${mte.base.value}',
+      name: '${mte.name.value}',
+      props: {
+        bg: '${mte.bg.value}',
+        fg: '${mte.fg.value}',
+        link: '${mte.link.value}',
+        navBg: '${mte.navBg.value}',
+        panel: '${mte.panel.value}',
+        accent: '${mte.accent.value}',
+        header: '${mte.header.value}',
+        renote: '${mte.renote.value}',
+        hashtag: '${mte.hashtag.value}',
+        mention: '${mte.mention.value}',
+        inputBorder: '${mte.inputBorder.value}'
+      },
+      author: '${mte.author.value}',
+      id: '${generateRandomId()}'
+    }`;
 
     // テキストエリアにコードを表示
     document.getElementById("code").value = code;
-});
+  });
 
-// ランダム文字列生成関数
-function generateRandomString(length) {
-  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-  let result = '';
-  for (let i = 0; i < length; i++) {
-    result += characters.charAt(Math.floor(Math.random() * characters.length));
-  }
-  return result;
-}
   // コードコピー処理
   document.getElementById("copyBtn").addEventListener("click", function() {
     let code = document.getElementById("code");
@@ -180,13 +172,12 @@ function generateRandomString(length) {
   // Misskey共有処理
   document.getElementById("shareBtn").addEventListener("click", function() {
     let code = document.getElementById("code").value;
-    let shareText = `${code}\n\n[Misskey非公式テーマメーカー](https://tanasan2363.github.io/mtm/)でMisskeyテーマを作成しました！`;
+    let shareText = `\`\`\`\n${code}\n\`\`\`\n[Misskey非公式テーマメーカー](https://tanasan2363.github.io/mtm/)でMisskeyテーマを作成しました！`;
     let shareUrl = `https://misskey-hub.net/share/?text=${encodeURIComponent(shareText)}&visibility=home&localOnly=0`;
 
     // 新しいタブで共有URLを開く
     window.open(shareUrl, "_blank");
   });
 </script>
-
 </body>
 </html>
