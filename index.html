@@ -3,24 +3,108 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Misskeyの非公式テーマメーカーです。\n公式ではありませんのでお気をつけください。">
+  <meta name="description" content="Misskeyの非公式テーマメーカーです。公式ではありませんのでお気をつけください。">
   <title>Misskey非公式テーマメーカー</title>
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@600&display=swap" rel="stylesheet">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap');
     body {
       margin: 0;
-      font-family: "M PLUS Rounded 1c", serif;
+      font-family: "M PLUS Rounded 1c", sans-serif;
       font-weight: 600;
-      font-style: normal;
-      background-color: white;
-      color: black;
+      background-color: #f9f9f9;
+      color: #333;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100vh;
     }
 
     /* ダークモード用スタイル */
     @media (prefers-color-scheme: dark) {
       body {
-        background-color: #222222;
-        color: #ffffff;
+        background-color: #303030;
+        color: #f9f9f9;
+      }
+    }
+
+    .container {
+      max-width: 600px;
+      width: 100%;
+      padding: 20px;
+      margin-top: 15px; /* 一番上から15pxの余白 */
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .container {
+        background: rgba(48, 48, 48, 0.9);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      }
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+
+    a {
+      display: inline-block;
+      padding: 10px 20px;
+      margin: 5px;
+      font-size: 1rem;
+      font-weight: bold;
+      text-decoration: none;
+      color: white;
+      background-color: #4caf50;
+      border-radius: 8px;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    a:hover {
+      background-color: #45a049;
+      transform: translateY(-2px);
+    }
+
+    a:active {
+      transform: translateY(0);
+    }
+
+    .footer {
+      margin-top: 20px;
+      font-size: 0.8rem;
+      color: #666;
+    }
+
+    .footer a {
+      text-decoration: none;
+      color: #4caf50;
+      background: none;
+      padding: 0;
+    }
+
+    .footer a:hover {
+      color: #45a049;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .footer {
+        color: #aaa;
+      }
+
+      .footer a {
+        color: #90caf9;
+      }
+
+      .footer a:hover {
+        color: #64b5f6;
       }
     }
   </style>
@@ -39,9 +123,12 @@
   </script>
 </head>
 <body>
-  <h1>OSごとに最適化されたページへリダイレクト中...</h2>
-  <h2>リダイレクトされない場合は下のリンクをクリック</h2>
-  <h3><a href="ios">iOS,iPadOS,Macintosh</a><br><a href="other">その他のOS</a></h3>
-  <p>ver.2024/12/22-12:57・<a href="https://misskey.flowers/@minumarapid">おーみや</p>
+  <div class="container">
+    <h1>OSごとに最適化されたページへリダイレクト中...</h1>
+    <h2>リダイレクトされない場合は以下のどちらかをクリックしてください</h2>
+    <a href="ios">iOS, iPadOS, Macintosh</a>
+    <a href="other">その他のOS</a>
+    <p class="footer">ver.2024/12/22-12:57・<a href="https://misskey.flowers/@minumarapid" target="_blank">おーみや</a></p>
+  </div>
 </body>
 </html>
