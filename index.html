@@ -7,10 +7,21 @@
   <title>Misskey非公式テーマメーカー</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap');
-    .m-plus-rounded-1c-regular {
-    font-family: "M PLUS Rounded 1c", serif;
-    font-weight: 400;
-    font-style: normal;
+    body {
+      margin: 0;
+      font-family: "M PLUS Rounded 1c", serif;
+      font-weight: 600;
+      font-style: normal;
+      background-color: white;
+      color: black;
+    }
+
+    /* ダークモード用スタイル */
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: #121212;
+        color: #ffffff;
+      }
     }
   </style>
   <script>
@@ -28,6 +39,7 @@
   </script>
 </head>
 <body>
-  <p>OSごとに最適化されたページへリダイレクト中...</p>
+  <h2>OSごとに最適化されたページへリダイレクト中...</h2>
+  <p>ver.2024/12/22-12:57・<a href="misskey.flowers/@minumarapid">おーみや</p>
 </body>
 </html>
