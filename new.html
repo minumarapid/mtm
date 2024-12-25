@@ -4,146 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Misskey非公式テーマメーカー</title>
-  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
-  <style>
-    /* 基本のスタイル */
-    body {
-      font-family: 'M PLUS Rounded 1c', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #fafafa;
-      color: #333;
-      transition: background-color 0.3s, color 0.3s;
-    }
-    h1 {
-      text-align: center;
-      padding: 20px;
-    }
-    form {
-      max-width: 600px;
-      margin: 20px auto;
-      padding: 20px;
-      background-color: #fff;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      box-sizing: border-box;
-    }
-    label {
-      display: block;
-      margin: 10px 0 5px;
-      font-size: 16px;
-    }
-    input[type="text"], input[type="color"], button {
-      width: 100%;
-      padding: 10px;
-      margin: 5px 0 15px;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      font-size: 16px;
-      box-sizing: border-box;
-    }
-    input[type="color"] {
-      height: 40px;
-    }
-    button {
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-    }
-    button:hover {
-      background-color: #45a049;
-    }
-    .output-area {
-      margin-top: 20px;
-    }
-    .output-area label {
-      margin-bottom: 5px;
-    }
-    textarea {
-      width: 100%;
-      height: 200px;
-      font-family: monospace;
-      background-color: #f4f4f4;
-      border: 1px solid #ddd;
-      padding: 10px;
-      resize: none;
-      box-sizing: border-box;
-    }
-    .button-group {
-      display: flex;
-      gap: 10px;
-    }
-    .button-group button {
-      width: auto;
-      flex: 1;
-    }
-    p {
-      text-align: center;
-      font-size: 14px;
-      color: #555;
-      margin: 20px 0;
-    }
-
-    /* ダークモード */
-    body.dark-mode {
-      background-color: #222;
-      color: #fff;
-    }
-    body.dark-mode form {
-      background-color: #333;
-    }
-    body.dark-mode input[type="text"], body.dark-mode input[type="color"], body.dark-mode button {
-      background-color: #555;
-      color: #fff;
-      border: 1px solid #666;
-    }
-    body.dark-mode textarea {
-      background-color: #555;
-      color: #fff;
-    }
-    body.dark-mode button {
-      background-color: #4CAF50;
-    }
-    body.dark-mode button:hover {
-      background-color: #45a049;
-    }
-
-    /* ブラウザのダークモードに自動的に追従 */
-    @media (prefers-color-scheme: dark) {
-      body {
-        background-color: #333;
-        color: #fff;
-      }
-      form {
-        background-color: #444;
-      }
-      input[type="text"], input[type="color"], button {
-        background-color: #555;
-        color: #fff;
-        border: 1px solid #666;
-      }
-      textarea {
-        background-color: #555;
-        color: #fff;
-      }
-      button {
-        background-color: #4CAF50;
-      }
-      button:hover {
-        background-color: #45a049;
-      }
-      p {
-        color: #fff;
-      }
-    }
-  </style>
 </head>
 <body>
 
 <h1>Misskey非公式テーマメーカー</h1>
 
 <form name="MTE">
-  <!-- 入力フォーム -->
   <label><input type="radio" name="base" value="light" checked> ライト</label>
   <label><input type="radio" name="base" value="dark"> ダーク</label>
   <br>
@@ -152,35 +18,20 @@
   <label>文字色 <input type="color" id="fg" value="#ffffff"></label>
   <label>リンクの色 <input type="color" id="link" value="#ffffff"></label>
   <label>UI左メニュー背景 <input type="color" id="navBg" value="#ffffff"></label>
-  <label>微妙に異なる色 <input type="color" id="panel" value="#ffffff"></label>
   <label>アクセント色 <input type="color" id="accent" value="#ffffff"></label>
-  <label>スマホモード下部色 <input type="color" id="header" value="#ffffff"></label>
-  <label>リノートの色 <input type="color" id="renote" value="#ffffff"></label>
-  <label>ハッシュタグ色 <input type="color" id="hashtag" value="#ffffff"></label>
-  <label>メンション色 <input type="color" id="mention" value="#ffffff"></label>
-  <label>入力ボーダー色 <input type="color" id="inputBorder" value="#ffffff"></label>
   <label>ユーザー名 <input type="text" id="author"></label>
   <button type="button" id="btn">完了</button>
   <div class="output-area">
-    <label for="code">生成されたコード:</label>
     <textarea id="code" readonly></textarea>
     <div class="button-group">
-      <button type="button" id="copyBtn">コードをコピー</button>
-      <button type="button" id="shareBtn">Misskeyにシェア</button>
       <button type="button" id="uploadBtn">ドライブにアップロード</button>
     </div>
   </div>
 </form>
-<p>ver.2024/12/22・<a href="https://misskey.flowers/@minumarapid">おーみや</a></p>
 
 <script>
-  const apiBase = "https://misskey.io"; // 利用するMisskeyインスタンスのURL
+  const apiBase = "https://misskey.io"; // MisskeyのインスタンスURL
   let appSecret, sessionToken, accessToken;
-
-  // ランダムなIDを生成する関数
-  function generateRandomId() {
-    return Array.from({ length: 20 }, () => Math.random().toString(36).charAt(2)).join('');
-  }
 
   // MiAuth認証を開始
   async function startMiAuth() {
@@ -198,7 +49,7 @@
       const appData = await appResponse.json();
       appSecret = appData.secret;
 
-      // 認証セッション生成
+      // セッション生成
       const sessionResponse = await fetch(`${apiBase}/api/auth/session/generate`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -207,7 +58,10 @@
       const sessionData = await sessionResponse.json();
       sessionToken = sessionData.token;
 
-      alert(`以下のURLで認証してください:\n${sessionData.url}`);
+      // 認証ページにリダイレクト
+      const authUrl = `${apiBase}/miauth/${sessionToken}`;
+      window.open(authUrl, "_blank"); // 認証ページを新しいタブで開く
+      alert("ブラウザで認証を完了してください");
     } catch (error) {
       console.error("認証エラー:", error);
     }
@@ -240,16 +94,9 @@
         fg: '${mte.fg.value}',
         link: '${mte.link.value}',
         navBg: '${mte.navBg.value}',
-        panel: '${mte.panel.value}',
-        accent: '${mte.accent.value}',
-        header: '${mte.header.value}',
-        renote: '${mte.renote.value}',
-        hashtag: '${mte.hashtag.value}',
-        mention: '${mte.mention.value}',
-        inputBorder: '${mte.inputBorder.value}'
+        accent: '${mte.accent.value}'
       },
-      author: '${mte.author.value}',
-      id: '${generateRandomId()}'
+      author: '${mte.author.value}'
     }`;
     document.getElementById("code").value = code;
   });
