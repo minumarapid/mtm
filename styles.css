@@ -24,14 +24,9 @@ body {
   transition: background-color 0.3s, color 0.3s;
 }
 
-h1 {
+h1, h2, h3, h4, h5, h6 {
   text-align: center;
   padding: 20px;
-}
-
-h2, h3, h4, h5, h6 {
-  margin-top: 20px;
-  color: var(--primary-text-color);
 }
 
 a {
@@ -43,8 +38,7 @@ a:hover {
   text-decoration: underline;
 }
 
-form,
-.div-style {
+form {
   max-width: 600px;
   margin: 20px auto;
   padding: 20px;
@@ -208,8 +202,7 @@ body.dark-mode li::before {
     color: #fff;
   }
 
-  form,
-  .div-style {
+  form {
     background-color: #444;
   }
 
@@ -251,8 +244,7 @@ body.dark-mode li::before {
 
 /* レスポンシブ対応 */
 @media (max-width: 768px) {
-  form,
-  .div-style {
+  form {
     padding: 15px;
   }
 
