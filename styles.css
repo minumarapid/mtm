@@ -1,208 +1,183 @@
-/* リセットと基本設定 */
-* {
+/* 基本のスタイル */
+body {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
-
-html, body {
-  font-family: 'M PLUS Rounded 1c', sans-serif;
+  background-color: #fafafa;
+  color: #333;
   line-height: 1.6;
-  background-color: var(--background, #fafafa);
-  color: var(--text, #333);
-  min-height: 100vh;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-/* 全体の基本要素 */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
+/* 見出し */
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  font-weight: bold;
+  text-align: center;
 }
 
-a {
-  color: var(--primary-color, #4CAF50);
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-a:hover {
-  color: var(--secondary-color, #45a049);
-}
-
-ul, ol {
-  padding-left: 20px;
+/* 段落・テキスト */
+p, ul, ol, blockquote, pre {
   margin: 10px 0;
+  padding: 0 20px;
+}
+
+/* リスト */
+ul, ol {
+  padding-left: 40px;
 }
 
 li {
   margin-bottom: 5px;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 600;
-  margin-bottom: 15px;
-}
-
-h1 { font-size: 2.5rem; text-align: center; }
-h2 { font-size: 2rem; }
-h3 { font-size: 1.75rem; }
-h4 { font-size: 1.5rem; }
-h5 { font-size: 1.25rem; }
-h6 { font-size: 1rem; color: var(--text-light, #777); }
-
-/* フォーム要素 */
-input[type="text"], input[type="email"], input[type="password"], textarea, select {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid var(--border, #ddd);
-  border-radius: 4px;
-  font-size: 16px;
-}
-
-input[type="checkbox"], input[type="radio"] {
-  margin-right: 10px;
-}
-
-button {
-  background-color: var(--primary-color, #4CAF50);
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s;
-}
-
-button:hover {
-  background-color: var(--secondary-color, #45a049);
-  transform: scale(1.05);
-}
-
-fieldset {
-  border: 1px solid var(--border, #ddd);
-  padding: 15px;
-  margin-bottom: 15px;
-  border-radius: 4px;
-}
-
-legend {
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-/* テーブル要素 */
+/* テーブル */
 table {
   width: 100%;
   border-collapse: collapse;
-  margin-bottom: 20px;
+  margin: 20px 0;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 th, td {
+  border: 1px solid #ddd;
   padding: 10px;
-  border: 1px solid var(--border, #ddd);
   text-align: left;
 }
 
 th {
-  background-color: var(--primary-color, #4CAF50);
-  color: white;
+  background-color: #f4f4f4;
 }
 
-tbody tr:nth-child(even) {
-  background-color: #f9f9f9;
+/* フォーム */
+form {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
 }
 
-tbody tr:hover {
-  background-color: #f1f1f1;
-}
-
-/* メディア要素 */
-audio, video {
-  max-width: 100%;
+label {
   display: block;
+  margin: 10px 0 5px;
+  font-size: 16px;
+}
+
+input, textarea, select, button {
+  width: 100%;
+  padding: 10px;
   margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box;
 }
 
-figcaption {
-  text-align: center;
-  font-size: 0.9rem;
-  color: var(--text-light, #777);
+textarea {
+  resize: none;
 }
 
-/* フレックスユーティリティ */
-.flex {
-  display: flex;
+button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-.flex-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+button:hover {
+  background-color: #45a049;
 }
 
-.flex-column {
-  display: flex;
-  flex-direction: column;
+/* リンク */
+a {
+  color: #4CAF50;
+  text-decoration: none;
+  transition: color 0.3s;
 }
 
-.flex-between {
-  display: flex;
-  justify-content: space-between;
+a:hover {
+  color: #45a049;
 }
 
-.flex-wrap {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+/* 引用 */
+blockquote {
+  padding: 10px 20px;
+  margin: 20px 0;
+  border-left: 5px solid #ddd;
+  background-color: #f9f9f9;
+  font-style: italic;
 }
 
-/* レスポンシブデザイン */
-@media (max-width: 768px) {
-  h1 { font-size: 2rem; }
-  h2 { font-size: 1.75rem; }
-  form { padding: 15px; }
-  table { font-size: 14px; }
+/* コード */
+pre, code {
+  font-family: 'Courier New', monospace;
+  background-color: #f4f4f4;
+  padding: 10px;
+  border-radius: 4px;
 }
 
-/* アニメーション */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+/* ダークモード */
+body.dark-mode {
+  background-color: #222;
+  color: #fff;
 }
 
-.fade-in {
-  animation: fadeIn 0.5s ease-in-out;
-}
-
-/* ダークモード対応 */
-body[data-theme="dark"] {
-  --background: #222;
-  --text: #fff;
-  --border: #666;
-}
-
-body[data-theme="dark"] form {
+body.dark-mode table {
   background-color: #333;
 }
 
-body[data-theme="dark"] input[type="text"],
-body[data-theme="dark"] input[type="email"],
-body[data-theme="dark"] input[type="password"],
-body[data-theme="dark"] textarea,
-body[data-theme="dark"] select {
-  background-color: #555;
-  color: white;
-  border: 1px solid var(--border);
+body.dark-mode th {
+  background-color: #444;
 }
 
-body[data-theme="dark"] textarea {
-  background-color: #555;
-  color: white;
+body.dark-mode td {
+  border-color: #555;
 }
 
-body[data-theme="dark"] p {
-  color: #ccc;
+body.dark-mode form {
+  background-color: #333;
+}
+
+body.dark-mode input, 
+body.dark-mode textarea, 
+body.dark-mode select, 
+body.dark-mode button {
+  background-color: #555;
+  color: #fff;
+  border: 1px solid #666;
+}
+
+body.dark-mode button {
+  background-color: #4CAF50;
+}
+
+body.dark-mode button:hover {
+  background-color: #45a049;
+}
+
+body.dark-mode a {
+  color: #80e27e;
+}
+
+body.dark-mode blockquote {
+  background-color: #444;
+  border-left-color: #4CAF50;
+}
+
+body.dark-mode pre, body.dark-mode code {
+  background-color: #333;
+  color: #eee;
+}
+
+/* 自動ダークモード対応 */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #333;
+    color: #fff;
+  }
 }
