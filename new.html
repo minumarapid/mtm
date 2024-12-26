@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Misskey非公式テーマメーカー</title>
-  <link rel="stylesheet" href="https://minumarapid.github.io/css/ios.css">
+  <link rel="stylesheet" href="https://minumarapid.github.io/css/main.css">
 </head>
 <body>
 
@@ -55,24 +55,24 @@
   document.getElementById("btn").addEventListener("click", function() {
     let mte = document.forms.MTE;
     let code = `{
-      base: '${mte.base.value}',
-      name: '${mte.name.value}',
-      props: {
-        bg: '${mte.bg.value}',
-        fg: '${mte.fg.value}',
-        link: '${mte.link.value}',
-        navBg: '${mte.navBg.value}',
-        panel: '${mte.panel.value}',
-        accent: '${mte.accent.value}',
-        header: '${mte.header.value}',
-        renote: '${mte.renote.value}',
-        hashtag: '${mte.hashtag.value}',
-        mention: '${mte.mention.value}',
-        inputBorder: '${mte.inputBorder.value}'
-      },
-      author: '${mte.author.value}',
-      id: '${generateRandomId()}'
-    }`;
+base: '${mte.base.value}',
+name: '${mte.name.value}',
+props: {
+  bg: '${mte.bg.value}',
+  fg: '${mte.fg.value}',
+  link: '${mte.link.value}',
+  navBg: '${mte.navBg.value}',
+  panel: '${mte.panel.value}',
+  accent: '${mte.accent.value}',
+  header: '${mte.header.value}',
+  renote: '${mte.renote.value}',
+  hashtag: '${mte.hashtag.value}',
+  mention: '${mte.mention.value}',
+  inputBorder: '${mte.inputBorder.value}'
+  },
+author: '${mte.author.value}',
+id: '${generateRandomId()}'
+}`;
 
     // テキストエリアにコードを表示
     document.getElementById("code").value = code;
