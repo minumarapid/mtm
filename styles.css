@@ -43,7 +43,7 @@ a:hover {
   text-decoration: underline;
 }
 
-form {
+form, div {
   max-width: 600px;
   margin: 20px auto;
   padding: 20px;
