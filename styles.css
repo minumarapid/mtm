@@ -5,52 +5,14 @@ body {
   padding: 0;
   background-color: #fafafa;
   color: #333;
-  line-height: 1.6;
   transition: background-color 0.3s, color 0.3s;
 }
 
-/* 見出し */
-h1, h2, h3, h4, h5, h6 {
-  margin: 20px 0 10px;
-  font-weight: bold;
+h1 {
   text-align: center;
+  padding: 20px;
 }
 
-/* 段落・テキスト */
-p, ul, ol, blockquote, pre {
-  margin: 10px 0;
-  padding: 0 20px;
-}
-
-/* リスト */
-ul, ol {
-  padding-left: 40px;
-}
-
-li {
-  margin-bottom: 5px;
-}
-
-/* テーブル */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 20px 0;
-  background-color: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-th, td {
-  border: 1px solid #ddd;
-  padding: 10px;
-  text-align: left;
-}
-
-th {
-  background-color: #f4f4f4;
-}
-
-/* フォーム */
 form {
   max-width: 600px;
   margin: 20px auto;
@@ -67,25 +29,24 @@ label {
   font-size: 16px;
 }
 
-input, textarea, select, button {
+input[type="text"], input[type="color"], button {
   width: 100%;
   padding: 10px;
-  margin-bottom: 15px;
+  margin: 5px 0 15px;
   border: 1px solid #ddd;
   border-radius: 4px;
   font-size: 16px;
   box-sizing: border-box;
 }
 
-textarea {
-  resize: none;
+input[type="color"] {
+  height: 40px;
 }
 
 button {
   background-color: #4CAF50;
   color: white;
   border: none;
-  cursor: pointer;
   transition: background-color 0.3s;
 }
 
@@ -93,32 +54,39 @@ button:hover {
   background-color: #45a049;
 }
 
-/* リンク */
-a {
-  color: #4CAF50;
-  text-decoration: none;
-  transition: color 0.3s;
+.output-area {
+  margin-top: 20px;
 }
 
-a:hover {
-  color: #45a049;
+.output-area label {
+  margin-bottom: 5px;
 }
 
-/* 引用 */
-blockquote {
-  padding: 10px 20px;
-  margin: 20px 0;
-  border-left: 5px solid #ddd;
-  background-color: #f9f9f9;
-  font-style: italic;
-}
-
-/* コード */
-pre, code {
-  font-family: 'Courier New', monospace;
+textarea {
+  width: 100%;
+  height: 200px;
+  font-family: monospace;
   background-color: #f4f4f4;
+  border: 1px solid #ddd;
   padding: 10px;
-  border-radius: 4px;
+  resize: none;
+  box-sizing: border-box;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+}
+
+.button-group button {
+  flex: 1;
+}
+
+p {
+  text-align: center;
+  font-size: 14px;
+  color: #555;
+  margin: 20px 0;
 }
 
 /* ダークモード */
@@ -127,25 +95,13 @@ body.dark-mode {
   color: #fff;
 }
 
-body.dark-mode table {
-  background-color: #333;
-}
-
-body.dark-mode th {
-  background-color: #444;
-}
-
-body.dark-mode td {
-  border-color: #555;
-}
-
 body.dark-mode form {
   background-color: #333;
 }
 
-body.dark-mode input, 
-body.dark-mode textarea, 
-body.dark-mode select, 
+body.dark-mode input[type="text"],
+body.dark-mode input[type="color"],
+body.dark-mode textarea,
 body.dark-mode button {
   background-color: #555;
   color: #fff;
@@ -160,24 +116,32 @@ body.dark-mode button:hover {
   background-color: #45a049;
 }
 
-body.dark-mode a {
-  color: #80e27e;
-}
-
-body.dark-mode blockquote {
-  background-color: #444;
-  border-left-color: #4CAF50;
-}
-
-body.dark-mode pre, body.dark-mode code {
-  background-color: #333;
-  color: #eee;
-}
-
-/* 自動ダークモード対応 */
+/* 自動ダークモード追従 */
 @media (prefers-color-scheme: dark) {
   body {
     background-color: #333;
+    color: #fff;
+  }
+
+  form {
+    background-color: #444;
+  }
+
+  input[type="text"], input[type="color"], button, textarea {
+    background-color: #555;
+    color: #fff;
+    border: 1px solid #666;
+  }
+
+  button {
+    background-color: #4CAF50;
+  }
+
+  button:hover {
+    background-color: #45a049;
+  }
+
+  p {
     color: #fff;
   }
 }
